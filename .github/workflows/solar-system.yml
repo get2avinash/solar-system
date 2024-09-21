@@ -118,4 +118,10 @@ jobs:
 
              echo Testing Image URL using wget
              
+        - name: Push Docker image
+          uses: docker/build-push-action@v6
+          with:
+            context: .
+            push: true
+            tags: ${{vars.DOCKERHUB_USERNAME}}/solar-system:${{github.sha}}
 
